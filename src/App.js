@@ -14,14 +14,16 @@ function App({store}) {
       case "Signup":
         return (<div> <Appbar store = {store} /> <SignUp /> </div>) 
       case "User":
-        if(localStorage.getItem("role")==1 || localStorage.getItem("role")==2)
+        if(localStorage.getItem("role")==="1" || localStorage.getItem("role")==="2")
         return (<div> <Appbar store = {store} /> <User /> </div>) 
         else
         return (<div> <Appbar store = {store} /> <SignIn store={store} /> </div>)
       case "Show":
-        if(localStorage.getItem("role")==1)
+        if(localStorage.getItem("role")==="1")
         return (<div> <Appbar store = {store} /> <Show /> </div>) 
         else
+        return (<div> <Appbar store = {store} /> <SignIn store={store} /> </div>)
+      default:
         return (<div> <Appbar store = {store} /> <SignIn store={store} /> </div>)
     }
   }
